@@ -1,0 +1,26 @@
+
+
+
+<%= form_for @poster do |frm|%>
+
+
+    <div class="name">
+
+    <%= frm.label :name, "Poster Name"%>
+    <%= frm.text_field :name, class: "form-control"%>
+    </div>
+
+    <div class="image">
+    <%= frm.label :imgprofile, "Poster Profile"%>
+    <%= frm.text_field :imgprofile, class: "form-control" %>
+    </div>
+
+    <div class="overview">
+    <%= frm.label :overview, "Poster Overview"%>
+    <%= frm.text_field :overview, class: "form-control" %>
+    </div>
+ 
+  <%=frm.submit "ADD", class: "btn buttons"%>
+  
+  
+<% end %>
