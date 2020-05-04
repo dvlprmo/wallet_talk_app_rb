@@ -1,19 +1,26 @@
 
 
-
-
-
-<div class="container">
+<div class="touch">
+    <%= link_to "Add Poster", new_posters_path, class:"holder submer" %>
+</div>
  
-  <div class="center row>
+
+<div class="con container">
+ 
+  <div class="center row">
  <% @posters.each do |post| %>
+
     <div class="holder col-md-3">
        
-          <%= image_tag(post.imgprofile, size: "200x150") %> 
+          <%= image_tag(post.imgprofile, size: "200x180") %> 
           <br>
            <%= post.name %>
            <br>
-           <%= post.overview %>    
+           <%= post.overview %>  
+           <br>
+           <div class="touch1">
+           <%= link_to "More", new_posters_path, class:"holder1 submer1" %> 
+</div>
     </div>
    
      
@@ -22,6 +29,6 @@
 
  
 </div>
-<%= link_to "Add an Poster", new_posters_path %>
+
 
 

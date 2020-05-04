@@ -10,7 +10,7 @@ class PostersController < ApplicationController
 
   def create 
     Poster.create(params.require(:poster).permit(:name, :imgprofile, :overview))
-    redirect_to posters_path
+    redirect_to posters_index_path
   end 
 
   def edit
