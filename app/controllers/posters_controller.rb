@@ -20,14 +20,12 @@ class PostersController < ApplicationController
   def update
     poster = Poster.find(params[:id])
     poster.update(params.require(:poster).permit(:name, :imgprofile, :overview))
-
+    redirect_to posters_path
   end
 
   def delete 
-
     Poster.find(params[:id]).destroy
-    redirect_to poster_path
-
+    redirect_to posters_index_path
   end
 
 

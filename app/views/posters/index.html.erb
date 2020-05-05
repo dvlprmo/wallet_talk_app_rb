@@ -1,7 +1,7 @@
 
 
 <div class="touch">
-    <%= link_to "Add Poster", new_posters_path, class:"holder submer" %>
+    <%= link_to "Add Poster", new_poster_path, class:"holder submer" %>
 </div>
  
 
@@ -18,8 +18,13 @@
            <br>
            <%= post.overview %>  
            <br>
-           <div class="touch1">
-           <%= link_to "More", new_posters_path, class:"holder1 submer1" %> 
+           <div class="linksbtn">
+           <%= link_to '✏️', edit_poster_path(post), class:" holder1 submer1" %>
+           <a class="holder1 submer1" data-confirm="Do you want to delete <%= post.name %> ?"
+            href="/posters/<%= post.id %>" data-method="delete"> <span class="delete">🗑</span></a>
+           <%= link_to "➡", new_poster_path, class:"holder1 submer1" %> 
+           
+     
 </div>
     </div>
    

@@ -46,16 +46,31 @@
 }
 .holder1{
     border: 1px solid darkgrey;
-    margin-left: 220px;
-    margin-bottom: 30px;
-    padding: 10px;
+    margin-left: 10px;
+    padding: 5px;
 
 }
 .submer1{
     border-radius: 10px;
-    background-color: darkgrey;
     text-decoration: none;
     color: black;
+}
+.holder2{
+    border: 1px solid darkgrey;
+    padding: 5px;
+    text-align: center;
+}
 
-
+.submer2{
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+.linksbtn{
+    text-align: center;
+    margin: 10px;
+}
+.delete{
+    margin-left: 5px;
 }
