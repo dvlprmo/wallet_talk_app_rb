@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   post 'posters/create'
   get 'posters/show'
   get 'posters/edit/:id', to: "posters#edit"
-  
   patch 'posters/update'
+  
   delete "posters/:id", to: "posters#delete"
 
   root 'posters#landing'

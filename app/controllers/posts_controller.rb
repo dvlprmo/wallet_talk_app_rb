@@ -1,17 +1,16 @@
 class PostsController < ApplicationController
  
- # before_action :set_post, only: [:show, :edit, :update, :destroy]
-
   # GET /posts
   # GET /posts.json
   def index
+   
     @posts = Post.all
   end
 
   # GET /posts/1
   # GET /posts/1.json
-  #def show
- # end
+  def show
+  end
 
   # GET /posts/new
   def new
@@ -26,6 +25,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+   # @poster = Poster.find(params[:posters_id])
     @post = Post.new(post_params)
     #@post = Post.new(post_params)
     respond_to do |format|
@@ -62,7 +62,7 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+ 
   private
     # Use callbacks to share common setup or constraints between actions
 

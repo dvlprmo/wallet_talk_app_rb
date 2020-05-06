@@ -32,7 +32,6 @@ class PostersController < ApplicationController
 
   def set_poster
     @poster = Poster.find(params[:id])
-
   end
  
 end
