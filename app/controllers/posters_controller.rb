@@ -28,6 +28,11 @@ class PostersController < ApplicationController
     redirect_to posters_index_path
   end
 
+  private 
 
+  def set_poster
+    @poster = Poster.find(params[:id])
+
+  end
  
 end

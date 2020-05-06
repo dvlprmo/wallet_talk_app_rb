@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Post typle:</strong>
+  <%= @post.post_typle %>
+</p>
+
+<p>
+  <strong>Post url:</strong>
+  <%= @post.post_url %>
+</p>
+
+<p>
+  <strong>Posters:</strong>
+  <%= @post.posters_id %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
