@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_poster, only: [:create, :new, :edit]
+  before_action :set_poster
+  before_action :set_post, only: [:update, :edit]
   # GET /posts
   # GET /posts.json
   def index
@@ -17,9 +18,7 @@ class PostsController < ApplicationController
     @post = @poster.posts.build  
   end
 
-  def edit 
-    @post = @poster.posts.build  
-  end 
+  
   # POST /posts
   # POST /posts.json
   def create
@@ -39,15 +38,16 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
+    puts @post.inspect
+    #respond_to do |format|
+     # if @post.update(post_params)
+    #    format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+   #     format.json { render :show, status: :ok, location: @post }
+   #   else
+    #    format.html { render :edit }
+     #   format.json { render json: @post.errors, status: :unprocessable_entity }
+    #  end
+   # end
   end
 
   # DELETE /posts/1
@@ -68,7 +68,9 @@ class PostsController < ApplicationController
   def set_poster
     @poster = Poster.find(params[:poster_id])
   end
-  
+  def set_post
+    @post = @poster.posts.find(params[:id])
+  end 
     def post_params
       params.require(:post).permit(:post_typle, :post_url, :posters_id)
     end
