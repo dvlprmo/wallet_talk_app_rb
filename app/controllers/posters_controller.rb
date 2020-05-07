@@ -1,9 +1,11 @@
 class PostersController < ApplicationController
+
+  before_action :set_poster, only: [:show]
   def index
     @posters = Poster.all
   end
 
-
+  
   def new
     @poster = Poster.new()
   end

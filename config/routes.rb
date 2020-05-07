@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   #get 'posts/index'
   get 'posters/new'
   post 'posters/create'
-  get 'posters/show'
+  #get 'posters/show'
   get 'posters/edit/:id', to: "posters#edit"
   patch 'posters/update'
   
@@ -19,6 +19,6 @@ Rails.application.routes.draw do
     resources :posts
   end 
  
-  #resources :posts
+  resources :posts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,9 +1,8 @@
 class PostsController < ApplicationController
-  before_action :set_poster, only: [:new]
+  before_action :set_poster, only: [:create, :new, :edit]
   # GET /posts
   # GET /posts.json
   def index
-   
     @posts = Post.all
   end
 
@@ -13,22 +12,18 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/new
+  # GET /posts/new
   def new
-    @poster = Poster.find(params[:poster_id]) 
-  #  puts @poster
-    @post = Post.new
-    
+    @post = @poster.posts.build  
   end
 
-  # GET /posts/1/edit
-  def edit
-  end
-
+  def edit 
+    @post = @poster.posts.build  
+  end 
   # POST /posts
   # POST /posts.json
   def create
-  #  @poster = Poster.find(params[:poster_id]) 
-    @post = Post.new(post_params)
+    @post = @poster.posts.build(post_params)
     puts @post.inspect
     respond_to do |format|
       if @post.save
