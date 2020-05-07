@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
- 
+  before_action :set_poster, only: [:new]
   # GET /posts
   # GET /posts.json
   def index
@@ -14,8 +14,10 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @poster = Poster.find(params[:poster_id])
-    @post = Post.new 
+    @poster = Poster.find(params[:poster_id]) 
+  #  puts @poster
+    @post = Post.new
+    
   end
 
   # GET /posts/1/edit
@@ -25,9 +27,9 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-   # @poster = Poster.find(params[:posters_id])
+  #  @poster = Poster.find(params[:poster_id]) 
     @post = Post.new(post_params)
-    #@post = Post.new(post_params)
+    puts @post.inspect
     respond_to do |format|
       if @post.save
         format.html { redirect_to new_poster_post_path, notice: 'Post was successfully created.' }
@@ -67,6 +69,11 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions
 
     # Only allow a list of trusted parameters through.
+
+  def set_poster
+    @poster = Poster.find(params[:poster_id])
+  end
+  
     def post_params
       params.require(:post).permit(:post_typle, :post_url, :posters_id)
     end

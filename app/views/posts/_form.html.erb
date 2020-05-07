@@ -1,5 +1,4 @@
-<%= form_for [@poster, @post] do |form| %>
-
+<%= form_with(model: post, url: [@poster, post], local: true) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -22,8 +21,7 @@
     <%= form.text_field :post_url, class: "form-control"%>
   </div>
 
-  <%-#  form.hidden_field :posters_id, :value => @posters.id -%>
-
+  <%= form.hidden_field :posters_id, value: @poster %>
 
   <div class="toucher">
     <%= form.submit 'Create', class: "mtd btn buttons" %>

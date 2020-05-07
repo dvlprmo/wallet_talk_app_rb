@@ -9,7 +9,7 @@ class PostersController < ApplicationController
   end
 
   def create 
-    Poster.create(params.require(:poster).permit(:name, :imgprofile, :overview))
+    Poster.create(poster_params)
     redirect_to posters_index_path
   end 
 
@@ -33,5 +33,8 @@ class PostersController < ApplicationController
   def set_poster
     @poster = Poster.find(params[:id])
   end
+  def poster_params
+    params.require(:poster).permit(:id, :name, :imgprofile, :overview)
+  end 
  
 end
