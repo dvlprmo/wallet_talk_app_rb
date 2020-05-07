@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_poster
-  before_action :set_post, only: [:update, :edit]
+  before_action :set_post, only: [:update, :edit, :show, :destroy]
   # GET /posts
   # GET /posts.json
   def index
@@ -38,16 +38,16 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    puts @post.inspect
-    #respond_to do |format|
-     # if @post.update(post_params)
-    #    format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-   #     format.json { render :show, status: :ok, location: @post }
-   #   else
-    #    format.html { render :edit }
-     #   format.json { render json: @post.errors, status: :unprocessable_entity }
-    #  end
-   # end
+
+    respond_to do |format|
+     if @post.update(post_params)
+       format.html { redirect_to poster_path(@poster), notice: 'Post was successfully updated.' }
+       format.json { render :show, status: :ok, location: @post }
+     else
+       format.html { render :edit }
+       format.json { render json: @post.errors, status: :unprocessable_entity }
+     end
+   end
   end
 
   # DELETE /posts/1
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to poster_path(@poster), notice: 'Post was successfully deleted.' }
       format.json { head :no_content }
     end
   end

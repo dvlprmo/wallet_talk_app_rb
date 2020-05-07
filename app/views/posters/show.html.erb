@@ -21,7 +21,7 @@
         <td><%= post.created_at %></td>
 
         <td><%= link_to 'Edit', edit_poster_post_path(@poster, post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', poster_post_path(@poster, post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

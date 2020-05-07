@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   patch 'posters/update'
   
   delete "posters/:id", to: "posters#delete"
+  #delete "posts/:id", to: "post#delete"
 
   root 'posters#landing'
 
