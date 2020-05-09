@@ -2,11 +2,13 @@ Rails.application.routes.draw do
  
   
   
-  
+  get 'posters/policy'
+  get 'posters/about'
   #resources :posts
   get 'posters/index'
   #get 'posts/index'
   get 'posters/new'
+
   post 'posters/create'
   #get 'posters/show'
   get 'posters/edit/:id', to: "posters#edit"
