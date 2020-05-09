@@ -2,6 +2,7 @@ Rails.application.routes.draw do
  
   
   
+  
   #resources :posts
   get 'posters/index'
   #get 'posts/index'
@@ -19,7 +20,11 @@ Rails.application.routes.draw do
   resources :posters do 
     resources :posts
   end 
- 
+
+  resources :posts do
+    resources :notes
+  end
+  resources :notes
   resources :posts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

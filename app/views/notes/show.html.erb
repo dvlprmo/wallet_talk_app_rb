@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Note location:</strong>
+  <%= @note.note_location %>
+</p>
+
+<p>
+  <strong>Note str:</strong>
+  <%= @note.note_str %>
+</p>
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<%= link_to 'Back', notes_path %>

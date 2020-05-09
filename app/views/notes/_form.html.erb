@@ -1,0 +1,28 @@
+<%= form_with(model: [@post, note], local: true) do |form| %>
+  <% if note.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+      <ul>
+        <% note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :note_location %>
+    <%= form.text_field :note_location, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note_str %>
+    <%= form.text_field :note_str, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Create', class: "mtd btn buttons" %>
+    <%= link_to 'Back', post_notes_path, class: "mtd btn buttons" %>
+  </div>
+<% end %>

@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Notes</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>location</th>
+      <th>Note</th>
+      <th>Time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @post.notes.each do |note| %>
+      <tr>
+        <td><%= note.note_location %></td>
+        <td><%= note.note_str %></td>
+        <td><%= note.created_at.strftime("%b %d, %Y")%></td>
+      
+        <td><%= link_to 'Edit', edit_post_note_path(@post, note), class: "mtd btn buttons"  %></td>
+        <td><%= link_to 'Delete', post_note_path(@post, note), method: :delete, data: { confirm: 'Are you sure?' }, class: "mtd btn buttons"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="toucher">
+
+<%= link_to "Add Note", new_post_note_path, class: "mtd btn buttons" %>
+
+
+</div>
+
