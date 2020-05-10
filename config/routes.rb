@@ -2,6 +2,7 @@ Rails.application.routes.draw do
  
   
   
+  devise_for :users
   get 'posters/policy'
   get 'posters/about'
   #resources :posts

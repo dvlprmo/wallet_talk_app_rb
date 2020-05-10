@@ -14,12 +14,45 @@
  *= require_self
  */
 footer{
-    margin-top: 70px;
+    margin-top: 25px;
     background-color: black;
     color: darkgray;
     font-weight: bolder;
     border-radius: 8px;
     padding-top: 5px;
-   
+}
+.first{
+    float: right;
+    margin-bottom: 40px;
+}
+.hideMe{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    font-weight: bolder;
+}
+.hideMe {
+    -moz-animation: cssAnimation 0s ease-in 2s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 2s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 2s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 2s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
 }
 

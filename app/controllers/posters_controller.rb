@@ -1,8 +1,11 @@
 class PostersController < ApplicationController
-
+  before_action :authenticate_user!
+  
   before_action :set_poster, only: [:show]
   def index
-    @posters = Poster.all
+   
+  # @posters = Poster.where(id: current_user.id)
+   @posters = Poster.all
   end
 
   

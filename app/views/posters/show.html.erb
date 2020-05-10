@@ -23,7 +23,7 @@
         <td><%= link_to 'Edit', edit_poster_post_path(@poster, post), class: "mtd btn buttons" %></td>
         <td><%= link_to 'Delete', poster_post_path(@poster, post), class: "mtd btn buttons", method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Note', post_notes_path(post), class: "mtd btn buttons" %></td>
-      </tr>
+      </tr> 
     <% end %>
   </tbody>
 </table>
