@@ -5,8 +5,8 @@ class PostersController < ApplicationController
 
   def index
 
-  #@posters = Poster.where(:user_id => current_user.id)
-   @posters = Poster.all
+   @posters = Poster.where(user_id: current_user.id)
+   #@posters = Poster.all
    
   end
 
@@ -16,7 +16,9 @@ class PostersController < ApplicationController
   end
 
   def create 
-    Poster.create(poster_params)
+    @poster = Poster.new(poster_params)
+    @poster.user_id = current_user.id
+    @poster.save
     redirect_to posters_index_path
   end 
 
@@ -37,11 +39,13 @@ class PostersController < ApplicationController
 
   private 
 
+
+
   def set_poster
     @poster = Poster.find(params[:id])
   end
   def poster_params
-    params.require(:poster).permit(:id, :name, :imgprofile, :overview)
+    params.require(:poster).permit(:id, :name, :imgprofile, :overview, :user_id)
   end 
  
 end
