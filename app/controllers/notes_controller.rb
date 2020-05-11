@@ -1,10 +1,12 @@
 class NotesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_post
   before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   # GET /notes
   # GET /notes.json
   def index
+   # @notes = Note.where(user_id: current_user.id)
     @notes = Note.all
   end
 
@@ -26,7 +28,7 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = @post.notes.build(note_params)
-
+  
     respond_to do |format|
       if @note.save
         format.html { redirect_to new_post_note_path, notice: 'Note was successfully created.' }

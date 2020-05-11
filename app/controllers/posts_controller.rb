@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_poster
   before_action :set_post, only: [:update, :edit, :show, :destroy]
   # GET /posts
   # GET /posts.json
   def index
+  # @posts = Post.where(user_id: current_user.id)
     @posts = Post.all
   end
 
@@ -23,7 +25,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = @poster.posts.build(post_params)
-    puts @post.inspect
+  
     respond_to do |format|
       if @post.save
         format.html { redirect_to new_poster_post_path, notice: 'Post was successfully created.' }
