@@ -41,3 +41,24 @@
 * Adding note to one artilces of one author:
 ![alt text](wallet_design/20.png)
 
+## Technologies Used:
+* Ruby:  2.7.1p83
+* Rails:  6.0.2.2
+* PostgreSQL:  12.6
+* HTML
+* CSS
+* Bootstrap.
+
+## Installation:
+```bash
+yarn install --check-files
+bundle install 
+rake db:drop
+rake db:setup
+rake db:migrate
+rails s
+```
+## Future Improvment:
+I would like to add more features on the web application in future such as:
+* Users can share what articles and notes they want to share with others in a live timeline. 
+* Chatbot or private messages for communcation between users.
