@@ -1,0 +1,2 @@
+module DenialHelper
+end

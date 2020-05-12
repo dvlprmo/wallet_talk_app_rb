@@ -13,7 +13,11 @@
   </thead>
 
   <tbody>
-    <% @post.notes.each do |note| %>
+    <% @notes.each do |note| %>
+    <% #if note.user_id != current_user.id%>
+        
+     <%# else %>
+
       <tr>
         <td><%= note.note_location %></td>
         <td><%= note.note_str %></td>
@@ -22,6 +26,7 @@
         <td><%= link_to 'Edit', edit_post_note_path(@post, note), class: "mtd btn buttons"  %></td>
         <td><%= link_to 'Delete', post_note_path(@post, note), method: :delete, data: { confirm: 'Are you sure?' }, class: "mtd btn buttons"  %></td>
       </tr>
+      <% #end %>
     <% end %>
   </tbody>
 </table>

@@ -16,13 +16,15 @@
   <tbody>
     <% @poster.posts.each do |post| %>
       <tr>
+  
         <td><%= post.post_typle %></td>
         <td><%= post.post_url %></td>
         <td><%= post.created_at.strftime("%b %d, %Y") %></td>
-
         <td><%= link_to 'Edit', edit_poster_post_path(@poster, post), class: "mtd btn buttons" %></td>
         <td><%= link_to 'Delete', poster_post_path(@poster, post), class: "mtd btn buttons", method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Note', post_notes_path(post), class: "mtd btn buttons" %></td>
+
+      
       </tr> 
     <% end %>
   </tbody>

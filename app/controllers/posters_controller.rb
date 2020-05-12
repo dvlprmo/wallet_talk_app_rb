@@ -1,7 +1,7 @@
 class PostersController < ApplicationController
   
   before_action :authenticate_user!
-  before_action :set_poster, only: [:show]
+ # before_action :set_poster, only: [:show]
 
 
   def index
@@ -10,8 +10,15 @@ class PostersController < ApplicationController
    #@posters = Poster.all
    
   end
-
   
+  def show
+    @poster = Poster.find(params[:id])
+      if @poster.user_id != current_user.id      
+          redirect_to denial_index_path
+       end 
+  end
+
+
   def new
     @poster = Poster.new()
   end

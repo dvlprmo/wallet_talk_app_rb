@@ -6,20 +6,28 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-   # @notes = Note.where(user_id: current_user.id)
-    @notes = Note.all
+    @notes = @post.notes.where(user_id: current_user.id)
+   # @notes = Note.all
+   
+   if !@notes.any? { |n| n[:user_id] == current_user.id }
+  # if @notes.length?
+    redirect_to denial_index_path
+  # puts @notes.inspect
+   end 
   end
 
   # GET /notes/1
   # GET /notes/1.json
-  def show
-  end
 
+  # edit show here. 
+
+   
+ 
   # GET /notes/new
   def new
-    @note = @post.notes.build
+    @note = @post.notes.new()
   end
-
+ 
   # GET /notes/1/edit
   def edit
   end
@@ -28,6 +36,7 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = @post.notes.build(note_params)
+   @note.user_id = current_user.id
   
     respond_to do |format|
       if @note.save
@@ -67,6 +76,8 @@ class NotesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
 
+    
+
     def set_post
       @post = Post.find(params[:post_id])
       
@@ -77,6 +88,6 @@ class NotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def note_params
-      params.require(:note).permit(:note_location, :note_str, :posts_id)
+      params.require(:note).permit(:note_location, :note_str, :posts_id, :user_id)
     end
 end

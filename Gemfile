@@ -5,6 +5,12 @@ ruby '2.7.1'
 
 # add device to gemfile
 gem 'devise'
+
+# add cancan to gemfile
+gem "cancan"
+
+# add friendly_id
+gem 'friendly_id', '~> 5.2.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 # Use postgresql as the database for Active Record

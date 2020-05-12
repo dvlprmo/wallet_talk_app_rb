@@ -2,6 +2,7 @@ Rails.application.routes.draw do
  
   
   
+  get 'denial/index'
   devise_for :users
   get 'posters/policy'
   get 'posters/about'
