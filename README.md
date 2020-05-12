@@ -5,12 +5,12 @@
 ## How the webpages structured:
 
 * There three 4 componoents including devise of auth. All componentet connected to each other as attached image below shows. The image also explain a bit how the models of components are connected.
-![alt text](wallet_design/WebsiteStructure.png)
+![alt text](wallet_design/mvcedit.png)
 
 ## Database schema:
 * Database schema has three MVC excluding the user devise. The relationship between poster and post is one-to-many, and poster has many notes through post where poster has many notes. Posts has many notes, and the relationship between them is one-to-many too.
 
-![alt text](wallet_design/DBSchma.png)
+![alt text](wallet_design/dbsedit.png)
 
 ## Wireframes:
 
