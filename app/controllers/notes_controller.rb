@@ -7,14 +7,11 @@ class NotesController < ApplicationController
   # GET /notes.json
   def index
     @notes = @post.notes.where(user_id: current_user.id)
-   # @notes = Note.all
-
-  puts @notes.empty?
-
+   
    if !@notes.any? { |n| n[:user_id] == current_user.id } and !@notes.empty?
-  # if @notes.length?
-    redirect_to denial_index_path
-  # puts @notes.inspect
+
+        redirect_to denial_index_path
+ 
    end 
   end
 
