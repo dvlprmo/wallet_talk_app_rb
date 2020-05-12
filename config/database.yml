@@ -75,11 +75,11 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
+   production:
+     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: wallet_talk_production
-  username: wallet_talk
-  password: <%= ENV['WALLET_TALK_DATABASE_PASSWORD'] %>
+#production:
+ # <<: *default
+  #database: wallet_talk_production
+  #username: wallet_talk
+  #password: <%= ENV['WALLET_TALK_DATABASE_PASSWORD'] %>
