@@ -9,20 +9,10 @@ class NotesController < ApplicationController
     @notes = @post.notes.where(user_id: current_user.id)
    
    if !@notes.any? { |n| n[:user_id] == current_user.id } and !@notes.empty?
-
         redirect_to denial_index_path
- 
    end 
   end
 
-  # GET /notes/1
-  # GET /notes/1.json
-
-  # edit show here. 
-
-   
- 
-  # GET /notes/new
   def new
     @note = @post.notes.new()
   end
